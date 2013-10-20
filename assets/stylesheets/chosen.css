@@ -1,6 +1,6 @@
 /* @group Base */
 .chzn-container {
-  font-size: 13px;
+  font-size: 11px;
   position: relative;
   display: inline-block;
   zoom: 1;
@@ -39,13 +39,13 @@
   -webkit-box-shadow: 0 0 3px #ffffff inset, 0 1px 1px rgba(0,0,0,0.1);
   -moz-box-shadow   : 0 0 3px #ffffff inset, 0 1px 1px rgba(0,0,0,0.1);
   box-shadow        : 0 0 3px #ffffff inset, 0 1px 1px rgba(0,0,0,0.1);
-  display: block;
+  display: inline;
   overflow: hidden;
   white-space: nowrap;
   position: relative;
-  height: 23px;
-  line-height: 24px;
-  padding: 0 0 0 8px;
+  height: 25px;
+  line-height: 27px;
+  padding: 2px 0 5px 8px;
   color: #444444;
   text-decoration: none;
 }
@@ -54,7 +54,7 @@
 }
 .chzn-container-single .chzn-single span {
   margin-right: 26px;
-  display: block;
+  display: inline;
   overflow: hidden;
   white-space: nowrap;
   -o-text-overflow: ellipsis;
