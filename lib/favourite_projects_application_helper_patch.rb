@@ -15,7 +15,7 @@ module FavouriteProjectsApplicationHelperPatch
       if Setting.plugin_redmine_favourite_projects['modifyProjectJumpList']
 	return unless User.current.logged?
 	favourites = FavouriteProject.find(:all,:conditions => ["user_id = ?", User.current.id],:include => :project, :order => 'projects.name').collect(&:project).compact.uniq
-	projects = User.current.memberships.collect(&:project).compact.uniq - favourites
+	projects = User.current.memberships.collect(&:project).compact.select(&:active?).uniq - favourites
 	if projects.any? or favourites.any?
 	  options =
 	    ("<option value=''>#{ l(:label_jump_to_a_project) }</option>" +
