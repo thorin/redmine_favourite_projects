@@ -8,22 +8,22 @@ module FavouriteProjectsApplicationHelperPatch
       alias_method_chain :render_project_jump_box, :favourite_projects
     end
   end
-  
+
   module InstanceMethods
     # hacked from ApplicationHelper's render _project_jump_box
     def render_project_jump_box_with_favourite_projects
       if Setting.plugin_redmine_favourite_projects['modifyProjectJumpList']
 	return unless User.current.logged?
-	favourites = FavouriteProject.find(:all,:conditions => ["user_id = ?", User.current.id],:include => :project, :order => 'projects.name').collect(&:project).compact.uniq
+	favourites = User.current.favourite_projects.ordered_by_name.collect(&:project).compact.uniq
 	projects = User.current.memberships.collect(&:project).compact.select(&:active?).uniq - favourites
 	if projects.any? or favourites.any?
 	  options =
 	    ("<option value=''>#{ l(:label_jump_to_a_project) }</option>" +
 	     "<optgroup label=\"#{ l('favourite_projects.chosen_jump_box.favourite_group')}\">").html_safe
-	  options << project_tree_options_for_select(favourites, :selected => @fav) do |p|
+	  options << project_tree_options_for_select(favourites, :selected => @project) do |p|
 	    { :value => project_path(:id => p, :jump => current_menu_item) }
-	  end 
-    
+	  end
+
 	  options <<
 	    ("<optgroup label=\"#{ l('favourite_projects.chosen_jump_box.other_group')}\">").html_safe
 

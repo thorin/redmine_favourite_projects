@@ -15,11 +15,11 @@ if Rails::VERSION::MAJOR >= 3
     unless User.included_modules.include?(FavouriteProjectsUserPatch)
       User.send(:include, FavouriteProjectsUserPatch)
     end
-    
+
     unless ApplicationHelper.included_modules.include?(FavouriteProjectsApplicationHelperPatch)
       ApplicationHelper.send(:include, FavouriteProjectsApplicationHelperPatch)
     end
-    
+
     unless MyHelper.included_modules.include?(FavouriteProjectsMyHelperPatch)
       MyHelper.send(:include, FavouriteProjectsMyHelperPatch)
     end
@@ -34,7 +34,7 @@ else
 
     unless User.included_modules.include?(FavouriteProjectsUserPatch)
       User.send(:include, FavouriteProjectsUserPatch)
-    end    
+    end
 
     unless ApplicationHelper.included_modules.include?(FavouriteProjectsApplicationHelperPatch)
       ApplicationHelper.send(:include, FavouriteProjectsApplicationHelperPatch)
@@ -53,14 +53,14 @@ Redmine::Plugin.register :redmine_favourite_projects do
   version '0.6.3'
   url 'https://github.com/syntacticvexation/redmine_favourite_projects'
 
-  
+
   settings :default => {
     'showDetailedProjectView' => true,
     'modifyProjectJumpList' => false,
     'modifyTopMenu' => false
     },
     :partial => 'redmine_favourite_projects'
-  
+
   menu :top_menu, :favourite_menu, '',
   {
     :caption => '',

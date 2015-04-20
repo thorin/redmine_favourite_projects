@@ -4,7 +4,7 @@ module FavouriteProjectsMyHelperPatch
   def self.included(base) # :nodoc:
     base.send(:include, InstanceMethods)
   end
-  
+
   module InstanceMethods
     # function used with permission from RedmineCRM's Favorite projects plugin
     # (http://redminecrm.com/projects/favoriteprojects
