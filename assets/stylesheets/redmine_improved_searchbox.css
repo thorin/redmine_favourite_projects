@@ -1,1 +1,2 @@
 #header a.chosen-single, #project_quick_jump_box_chzn { color:black; vertical-align:bottom; }
+#top-menu { overflow: auto; overflow-x: hidden; overflow-y: hidden; height: auto; padding-bottom: 0.52em; }
