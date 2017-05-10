@@ -61,7 +61,7 @@ Redmine::Plugin.register :redmine_favourite_projects do
     },
     :partial => 'redmine_favourite_projects'
 
-  menu :top_menu, :favourite_menu, '',
+  menu :top_menu, :favourite_menu, '#',
   {
     :caption => '',
     :html => { :id => 'favourite-menu' },
